@@ -4,7 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>GifTastic: K-pop Edition!! | Eric Remoroza</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
+<body>
+    <div class="container">
+        <h1>GifTastic: K-pop Edition!!</h1>
+        <!--user-generated buttons appear here-->
+        <div class="buttons-view"></div>
+        <form id="added-kpop">
+            <label for="kpop-input">Add your favorite K-pop artist or song:</label>
+            <input type="text" id="kpop-input">
+            <input id="kpop-button" type="submit" value="Add K-pop artist or song">
+        </form>
+        <div id="gifs-view"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javscript" src="assets/javascript/main.js"></script>
+</body>
 
 </html>
