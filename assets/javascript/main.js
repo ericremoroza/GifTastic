@@ -1,5 +1,17 @@
 var kPop = ["2NE1", "BTS", "Girls' Generation", "Psy", "Hello Bitches", "Mr. Simple", "SHINee", "Super Junior"];
 
+//adds buttons based on user-input
+function createButtons() {
+    // deletes added content to prevent repeat buttons
+    $("#buttons-view").empty();
+    for (var i = 0; i < kPop.length; i++) {
+        var a = $("<button>");
+        a.addClass("artistOrSong");
+        a.attr("data-name", kPop[i]);
+        a.text(kPop[i]);
+        $("#buttons-view").append(a);
+    }
+};
 function displayGifs() {
     var term = $(this).attr("data-name");
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + term + "&api_key=8uW2w5RcnSMn8ltX5jYkG3Rr2i5I50Qw&limit=5";
@@ -33,38 +45,13 @@ function displayGifs() {
     });
 };
 
-//adds buttons based on user-input
-function createButtons() {
-    // deletes added content to prevent repeat buttons
-    $(".buttons-view").empty();
-    for (var i = 0; i < kPop.length; i++) {
-        var a = $("<button>");
-        a.addClass("artistOrSong");
-        a.attr("data-name", kPop[i]);
-        a.text(kPop[i]);
-        $(".buttons-view").append(a);
-    }
-};
+
 
 $("#kpop-button").on("click", function (event) {
     event.preventDefault();
     var term = $("#kpop-input").val().trim();
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + term + "&api_key=8uW2w5RcnSMn8ltX5jYkG3Rr2i5I50Qw&limit=5";
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).done(function (response) {
-        if (response.data.length === 0) {
-            alert("No results");
-        } else if (kPop.indexOf(term) != -1) {
-            alert("Button already created");
-        } else {
-            kPop.push(term);
-            createButtons();
-        }
-    });
-
+    kPop.push(term);
+    createButtons();
 
 });
 
