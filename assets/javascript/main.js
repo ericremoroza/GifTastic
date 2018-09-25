@@ -4,7 +4,7 @@ $(document).ready(function () {
     //adds buttons based on user-input
     function createButtons() {
         // deletes added content to prevent repeat buttons
-        // $("#buttons-view").empty();
+        $("#buttons-view").empty();
         for (var i = 0; i < kPop.length; i++) {
             var a = $("<button>");
             a.addClass("artistOrSong");
@@ -35,7 +35,7 @@ $(document).ready(function () {
                 imgDiv.attr("data-state", "still");
                 imgDiv.attr("data-name", term);
                 imgDiv.attr("data-still", response.data[i].images.fixed_height_still.url);
-                imgDic.attr("data-animate", response.data[i].images.fixed_height.url);
+                imgDiv.attr("data-animate", response.data[i].images.fixed_height.url);
 
                 $(imgDiv).append(gifImg);
                 $(gifDiv).append(imgDiv);
@@ -67,7 +67,6 @@ $(document).ready(function () {
             $(this).attr("data-state", "still");
         }
     });
-    console.log(kPop[i]);
     createButtons();
     displayGifs();
 });
