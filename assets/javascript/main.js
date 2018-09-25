@@ -14,9 +14,29 @@ $(document).ready(function () {
             console.log(kPop[i]);
         }
     };
+
+    $("#kpop-button").on("click", function (event) {
+        event.preventDefault();
+        var term = $("#kpop-input").val().trim();
+        kPop.push(term);
+        createButtons();
+
+    });
+
+    $(".gif").on("click", function () {
+        var state = $(this).attr("data-state");
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    });
+    
     function displayGifs() {
         var term = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + term + "&api_key=8uW2w5RcnSMn8ltX5jYkG3Rr2i5I50Qw&limit=5";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + term + "&api_key=8uW2w5RcnSMn8ltX5jYkG3Rr2i5I50Qw&limit=10";
 
         $.ajax({
             url: queryURL,
@@ -49,24 +69,7 @@ $(document).ready(function () {
 
 
 
-    $("#kpop-button").on("click", function (event) {
-        event.preventDefault();
-        var term = $("#kpop-input").val().trim();
-        kPop.push(term);
-        createButtons();
 
-    });
-
-    $(".gif").on("click", function () {
-        var state = $(this).attr("data-state");
-        if (state === "still") {
-            $(this).attr("src", $(this).attr("data-animate"));
-            $(this).attr("data-state", "animate");
-        } else {
-            $(this).attr("src", $(this).attr("data-still"));
-            $(this).attr("data-state", "still");
-        }
-    });
     createButtons();
     displayGifs();
 });
