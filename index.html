@@ -4,39 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>GifTastic: K-pop Edition!! | Eric Remoroza</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>GifTastic: K-pop Edition!!</h1>
         <!--user-generated buttons appear here-->
-        <div class="row">
-            <div id="buttons-view"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <form id="added-kpop">
-                    <label for="kpop-input">Add your favorite K-pop artist or song:</label>
-                    <input type="text" id="kpop-input">
-                    <!--click this button after filling the text input-->
-                    <input id="kpop-button" type="submit" value="Add K-pop artist or song">
-                </form>
-            </div>
-            <div class="col-md-6">
-                <!--gifs results based on buttons appear here-->
-                <div id="gifs-view"></div>
-            </div>
-        </div>
+        <div id="buttons-view"></div>
+
+        <form id="added-kpop">
+            <label for="kpop-input">Add your favorite K-pop artist or song:</label>
+            <input type="text" id="kpop-input"><br>
+
+            <!--click this button after filling the text input-->
+            <input type="submit" value="Submit">
+        </form>
+
+        <!--gifs results based on buttons appear here-->
+        <div id="gifs-view"></div>
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <script src="assets/javascript/main.js"></script>
 
 </html>
