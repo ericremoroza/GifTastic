@@ -35,7 +35,7 @@ $(document).on("click", ".searchButton", function() {
                 var animated = response.data[i].images.fixed_height.url;
                 //still image of GIF
                 var still = response.data[i].images.fixed_height_still.url;
-                var gifImg = $("<img>");
+                let gifImg = $("<img>");
                 gifImg.attr("src", still);
                 gifImg.attr("data-still", still);
                 gifImg.attr("data-animated", animated);
@@ -43,7 +43,7 @@ $(document).on("click", ".searchButton", function() {
                 gifImg.addClass("searchImage");
                 gifDiv.append(p);
                 gifDiv.append(gifImg);
-                $("#gifs-view").append(gifDiv);
+                $("#gifs-view").prepend(gifDiv);
             }
         })
 });
